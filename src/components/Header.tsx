@@ -4,6 +4,7 @@ import {
     SignInButton,
     SignOutButton,
     SignUpButton,
+    UserButton,
 } from '@clerk/nextjs'
 import Link from 'next/link'
 
@@ -14,7 +15,9 @@ export default function Header() {
                 <div className='flex items-center justify-between container'>
                     <div className='flex items-center font-bold'>    
                         <Link href='/'>
-                            <div className='text-lg text-white'>MyPage</div>
+                            <div className="flex items-center space-x-2"> 
+                                <div className="text-lg text-white">MyPage</div>
+                            </div>
                         </Link>
                     </div>
                     <div className='flex items-center font-bold'>
@@ -28,16 +31,23 @@ export default function Header() {
                         </SignedOut>
 
                         <SignedIn>
-                            <Link href='/dashboard' className='text-gray-300 hover:text-white mr-4'>
-                            Dashboard
-                            </Link>
                             <Link href='/project' className='text-gray-300 hover:text-white mr-4'>
                             Project
+                            </Link>
+                            <Link href='/team' className='text-gray-300 hover:text-white mr-4'>
+                            Team
                             </Link>
                             <Link href='/contact' className='text-gray-300 hover:text-white mr-4'>
                             Contact
                             </Link>
-                            <div className='text-gray-300 hover:text-white mr-4'>
+                            <UserButton 
+                            appearance={{
+                                elements: {
+                                    avatarBox : 'ring-2 ring-white mr-4'
+                                },
+                                }}
+                                />
+                            <div className='text-gray-300 hover:text-white'>
                                 <SignOutButton />
                             </div>
                         </SignedIn>

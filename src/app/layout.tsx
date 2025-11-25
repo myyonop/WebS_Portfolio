@@ -2,6 +2,7 @@ import { type Metadata } from 'next'
 import { ClerkProvider } from '@clerk/nextjs'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
+import { ThemeProvider } from 'next-themes'
 import Header from '@/components/Header'
 
 const geistSans = Geist({
@@ -28,12 +29,18 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <Header />
-          <main className='min-h-screen'>
-            <div className='container mx-auto px-4 pt-20'>
-              <div className='max-w-2xl mx-auto'>{children}</div>
-            </div>
-          </main>
+            <Header />
+              <main className='flex flex-col items-center'>
+                <div className='w-full max-w-5xl'>
+                  <div className='max-w-auto mx-auto'>{children}</div>
+                </div>
+              </main>
+              <footer className="bg-gray-400 py-4 px-8 mt-20">
+                <p className="text-center">
+                  본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다. <br />
+                  © 2025 Jo Eun-Su. All Rights Reserved.
+                </p>
+              </footer>
         </body>
       </html>
     </ClerkProvider>
