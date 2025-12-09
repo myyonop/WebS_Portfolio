@@ -82,7 +82,7 @@ export default function TeamIntroPage() {
         </h1>
         <p className="text-gray-600 mb-1">: 공주들</p>
         <a 
-          href="#" 
+          href="#https://book-review-f5ty.vercel.app/" 
           className="text-blue-600 hover:underline mb-3 inline-block"
         >
           Team_Project
